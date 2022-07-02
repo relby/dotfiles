@@ -1,0 +1,62 @@
+format = """
+$username\
+$hostname\
+$localip\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$c\
+$container\
+$deno\
+$golang\
+$nodejs\
+$python\
+$rust\
+$conda\
+$custom\
+$fill\
+$time\
+$line_break\
+$cmd_duration\
+$status\
+$character"""
+add_newline = false
+
+[fill]
+symbol = " "
+
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%v %R"
+
+[cmd_duration]
+format = "[$duration]($style) "
+
+[c]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "
