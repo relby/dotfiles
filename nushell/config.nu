@@ -432,4 +432,4 @@ alias l = ls
 alias ll = ls -l
 alias vim = nvim
 alias gs = git status
-
+alias pacman = sudo pacman
