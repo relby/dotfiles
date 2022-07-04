@@ -106,7 +106,7 @@ mouse_bindings:
 #  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
 
 key_bindings:
-  - { key: V,         mods: Control,                    action: Paste          }
-  - { key: C,         mods: Control,                    action: Copy           }
+#  - { key: V,         mods: Control,                    action: Paste          }
+#  - { key: C,         mods: Control,                    action: Copy           }
   - { key: Paste,     mods: None,                       action: Paste          }
   - { key: Copy,      mods: None,                       action: Copy           }
