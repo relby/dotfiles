@@ -22,20 +22,20 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: hack
+    family: JetBrains Mono Nerd Font Mono
     style: Regular
   bold:
-    family: hack
+    family: JetBrains Mono Nerd Font Mono
     style: Bold
   italic:
-    family: hack
+    family: JetBrains Mono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: monospace
+    family: JetBrains Mono Nerd Font Mono
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 15.0
 # Color schemas
 schemes:
   ### Doom One ###
