@@ -57,6 +57,7 @@ let-env NU_PLUGIN_DIRS = [
 let-env EDITOR = "nvim"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
-# let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+let-env PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
+# Starship initialization
 mkdir ~/.cache/starship
 starship init nu | save ~/.cache/starship/init.nu

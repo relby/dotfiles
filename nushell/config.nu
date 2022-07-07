@@ -209,7 +209,7 @@ let-env config = {
   completion_algorithm: "prefix"  # prefix, fuzzy
   animate_prompt: false # redraw the prompt every second
   float_precision: 2
-  # buffer_editor: "emacs" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
+  buffer_editor: "nvim" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
   use_ansi_coloring: true
   filesize_format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, zb, zib, auto
   edit_mode: emacs # emacs, vi
@@ -422,14 +422,34 @@ let-env config = {
       mode: [emacs, vi_normal, vi_insert]
       event: { send: menu name: commands_with_description }
     }
+	{
+	  name: reload_config
+	  modifier: none
+	  keycode: F5
+	  mode: emacs
+	  event: {
+	    send: executehostcommand,
+		cmd: $"source '($nu.config-path)';clear;echo 'Config has been reloaded'"
+	  }
+	}
   ]
 }
+
+# My custom commands
+def weather [place = "Nizhny_Novgorod", ...rest] {
+  curl $"wttr.in/($rest | prepend $place | str collect '_')"
+}
+
 # Initialize starship prompt
 source ~/.cache/starship/init.nu
 # Aliases
+# alias ls = (ls | sort-by type name size)
 alias la = ls -a
 alias l = ls
 alias ll = ls -l
 alias vim = nvim
 alias gs = git status
-alias pacman = sudo pacman
+alias pacman = sudo pacman 
+alias paru = paru 
+alias "config qtile" = nvim ~/.config/qtile
+alias cal = /usr/bin/cal --monday
