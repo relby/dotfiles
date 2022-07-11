@@ -1,5 +1,5 @@
 window:
-  opacity: 0.95
+  opacity: 1
 
   # Window title
   title: Alacritty
@@ -105,8 +105,4 @@ mouse_bindings:
 #  - { mouse: Right,  mods: Control, action: ExpandSelection }
 #  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
 
-key_bindings:
-#  - { key: V,         mods: Control,                    action: Paste          }
-#  - { key: C,         mods: Control,                    action: Copy           }
-  - { key: Paste,     mods: None,                       action: Paste          }
-  - { key: Copy,      mods: None,                       action: Copy           }
+#key_bindings:
