@@ -32,14 +32,15 @@ for i in groups:
 borderline = dict(
     border_focus=palette[8],
     border_normal=palette[1],
-    border_width=3,
-    margin=4,
+    border_width=2,
+    margin=0,
 )
 
 layouts = [
     layout.Columns(**borderline),
-    layout.Spiral(**borderline, clockwise=True, main_pane="left"),
+    # layout.Spiral(**borderline, clockwise=True, main_pane="left"),
     layout.Max(**borderline),
+    layout.Floating(**borderline),
 ]
 
 # Automatically float application pop-ups

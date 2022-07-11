@@ -1,7 +1,7 @@
 # credits: the-argus
 # TODO: my own statusbar, use this to setup qtile for now.
 
-from libqtile import bar, qtile, widget
+from libqtile import bar, widget
 from libqtile.config import Screen
 from libqtile.lazy import lazy
 from modules.groups import borderline

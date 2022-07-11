@@ -26,6 +26,11 @@ mouse = [
     EzClick("M-<Button2>", lazy.window.bring_to_front()),
 ]
 
+group_navigation = [
+    EzKey("M-<Tab>", lazy.screen.next_group()),
+    EzKey("M-S-<Tab>", lazy.screen.prev_group()),
+]
+
 window_navigation = [
     EzKey("M-h", lazy.layout.left()),
     EzKey("M-j", lazy.layout.down()),
@@ -34,8 +39,8 @@ window_navigation = [
 ]
 
 window_displacement = [
-    EzKey("M-<Tab>", lazy.layout.next()),  # Shift focus -> other window(s) in stack
-    EzKey("M-S-<Tab>", lazy.layout.previous()),
+    EzKey("A-<Tab>", lazy.layout.next()),  # Shift focus -> other window(s) in stack
+    EzKey("A-S-<Tab>", lazy.layout.previous()),
     # EzKey("M-<Return>", lazy.layout.swap_main()),
     EzKey("M-S-h", lazy.layout.swap_left(), lazy.layout.shuffle_left()),
     EzKey("M-S-j", lazy.layout.swap_down(), lazy.layout.shuffle_down()),
@@ -54,10 +59,8 @@ window_size_control = [
 toggles = [
     EzKey("M-q", lazy.window.kill()),
     #EzKey("M-<space>", lazy.next_layout()),
-    EzKey("M-t", lazy.window.toggle_floating()),
-    EzKey("M-m", lazy.window.toggle_minimize()),
-    EzKey("M-C-<space>", lazy.group.setlayout("max")),
-    EzKey("M-S-<space>", lazy.window.toggle_fullscreen()),
+    EzKey("M-S-f", lazy.window.toggle_floating()),
+    EzKey("M-f", lazy.window.toggle_fullscreen()),
 ]
 
 qtile_controls = [
@@ -87,9 +90,11 @@ media_controls = [
     EzKey("M-<Down>", lazy.spawn("playerctl -p spotify play-pause")),
     EzKey("M-<Right>", lazy.spawn("playerctl -p spotify next")),
     EzKey("M-<Left>", lazy.spawn("playerctl -p spotify previous")),
-    EzKey("M-S-<Down>", lazy.spawn(expanduser("~/scripts/spotify-toggle-mute.nu"))), 
+    EzKey("M-S-<Down>", lazy.spawn(expanduser("~/scripts/spotify-toggle-mute.nu"))),
     EzKey("M-S-<Right>", lazy.spawn(expanduser("~/scripts/spotify-volume-up.nu"))),
     EzKey("M-S-<Left>", lazy.spawn(expanduser("~/scripts/spotify-volume-down.nu"))),
+    EzKey("M-C-<Right>", lazy.spawn("playerctl -p spotify position 5+")),
+    EzKey("M-C-<Left>", lazy.spawn("playerctl -p spotify position 5-")),
 ]
 
 screenshot = [
@@ -107,6 +112,7 @@ quick_launch = [
 ]
 
 keys = [
+    *group_navigation,
     *window_navigation,
     *window_displacement,
     *window_size_control,

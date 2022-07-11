@@ -26,4 +26,4 @@ decay = [
     "#74bee9",  # Colour 10
 ]
 
-palette = catppuccin
+palette = decay

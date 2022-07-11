@@ -25,4 +25,4 @@ focus_on_window_activation = "smart"
 follow_mouse_focus = True
 reconfigure_screens = True
 
-wmname = "Qtile"
+wmname = "qtile"
