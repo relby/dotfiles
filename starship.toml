@@ -38,6 +38,8 @@ time_format = "%v %R"
 format = "[$duration]($style) "
 
 [c]
+detect_extensions = ["h", "c", "hpp", "cpp"]
+commands = [[ "clang", "--version" ], [ "gcc", "--version" ], [ "cc", "--version" ]]
 symbol = " "
 
 [docker_context]
