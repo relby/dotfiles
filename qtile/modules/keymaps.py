@@ -102,15 +102,6 @@ screenshot = [
     EzKey("M-<Print>", lazy.spawn("flameshot screen")),
 ]
 
-brightness_controls = [
-    EzKey("<XF86MonBrightnessUp>", lazy.spawn("brightctl --up")),
-    EzKey("<XF86MonBrightnessDown>", lazy.spawn("brightctl --down")),
-]
-
-quick_launch = [
-    EzKey("<XF86Calculator>", lazy.spawn([myTerminal, "-T Qalc -e qalc"])),
-]
-
 keys = [
     *group_navigation,
     *window_navigation,
@@ -123,6 +114,4 @@ keys = [
     *audio_controls,
     *media_controls,
     *screenshot,
-    *brightness_controls,
-    *quick_launch,
 ]

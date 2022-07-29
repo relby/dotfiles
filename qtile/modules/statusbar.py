@@ -174,7 +174,7 @@ datetime = [
 ]
 
 
-def widgetlist():
+def main_monitor_widgetlist():
     return [
         spacer_small,
         logo,
@@ -189,6 +189,23 @@ def widgetlist():
         datetime,
         # batt,
     ]
+
+def second_monitor_widgetlist():
+    return [
+        spacer_small,
+        logo,
+        groupbox,
+        layout,
+        windowname,
+        # mpris,
+        # cpu,
+        # net,
+        mem,
+        systray,
+        datetime,
+        # batt,
+    ]
+
 
 
 def style(widgetlist):
@@ -223,9 +240,9 @@ def style(widgetlist):
     return [w[0](**w[1]) for w in styled]
 
 
-def my_bar():
+def main_monitor_bar():
     return bar.Bar(
-        [*style(widgetlist())],
+        [*style(main_monitor_widgetlist())],
         34,
         foreground=palette[0],
         background=palette[1],
@@ -238,6 +255,20 @@ def my_bar():
         ],
     )
 
+def second_monitor_bar():
+    return bar.Bar(
+        [*style(main_monitor_widgetlist())],
+        34,
+        foreground=palette[0],
+        background=palette[1],
+        opacity=1.0,
+        margin=[
+            borderline["margin"],
+            borderline["margin"],
+            borderline["border_width"],
+            borderline["margin"],
+        ],
+    )
 
 widget_defaults = dict(
     **fontinfo,
@@ -246,5 +277,6 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(top=my_bar()),
+    Screen(top=main_monitor_bar()),
+    Screen(top=second_monitor_bar())
 ]
