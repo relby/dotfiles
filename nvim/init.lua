@@ -230,7 +230,14 @@ local config = {
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
       ["<C-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
       ["<F2>"] =  { vim.lsp.buf.rename, desc = "Rename" },
-      ["<C-p>"] = { require('telescope.builtin').find_files }
+      ["<C-p>"] = { require('telescope.builtin').find_files },
+      ["<C-_>"] = { require("Comment.api").toggle_current_linewise, desc = "Toggle comment line" },
+      -- Works only in graphical clients such as Neovide
+      ["<C-Tab>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer tab" },
+      ["<C-S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer tab" }
+    },
+    v = {
+      ["<C-_>"] = { "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
     },
     t = {
       -- setting a mapping to false will disable it
