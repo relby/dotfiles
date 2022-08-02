@@ -149,21 +149,6 @@ local config = {
     },
   },
 
-  -- Modify which-key registration
-  ["which-key"] = {
-    -- Add bindings
-    register_mappings = {
-      -- first key is the mode, n == normal mode
-      n = {
-        -- second key is the prefix, <leader> prefixes
-        ["<leader>"] = {
-          -- which-key registration table for normal mode, leader prefix
-          -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-        },
-      },
-    },
-  },
-
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -223,15 +208,25 @@ local config = {
     underline = true,
   },
 
+  -- Mapping data with "desc" stored directly by vim.keymap.set().
+  --
+  -- Please use this mappings table to set keyboard mapping since this is the
+  -- lower level configuration and more robust one. (which-key will
+  -- automatically pick-up stored data by this setting.)
   mappings = {
     -- first key is the mode
     n = {
       -- second key is the lefthand side of the map
+      -- mappings seen under group name "Buffer"
+      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
       ["<C-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
-      ["<F2>"] =  { vim.lsp.buf.rename, desc = "Rename" },
-      ["<C-p>"] = { require('telescope.builtin').find_files },
-      ["<C-_>"] = { require("Comment.api").toggle_current_linewise, desc = "Toggle comment line" },
+      ["<F2>"] =  { function() vim.lsp.buf.rename() end, desc = "Rename" },
+      ["<C-p>"] = { function() require('telescope.builtin').find_files() end },
+      ["<C-_>"] = { function() require("Comment.api").toggle_current_linewise() end, desc = "Toggle comment line" },
       -- Works only in graphical clients such as Neovide
       ["<C-Tab>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer tab" },
       ["<C-S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer tab" }
@@ -244,6 +239,22 @@ local config = {
       -- ["<esc>"] = false,
       ["<C-k>"] = false,
       ["<esc>"] = { "<C-a><C-k><C-d>", desc = "Close terminal"}
+    },
+  },
+
+  -- Modify which-key registration (Use this with mappings table in the above.)
+  ["which-key"] = {
+    -- Add bindings which show up as group name
+    register_mappings = {
+      -- first key is the mode, n == normal mode
+      n = {
+        -- second key is the prefix, <leader> prefixes
+        ["<leader>"] = {
+          -- third key is the key to bring up next level and its displayed
+          -- group name in which-key top level menu
+          ["b"] = { name = "Buffer" },
+        },
+      },
     },
   },
 
