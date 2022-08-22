@@ -207,7 +207,6 @@ let-env config = {
   quick_completions: true  # set this to false to prevent auto-selecting completions when only one remains
   partial_completions: true  # set this to false to prevent partial filling of the prompt
   completion_algorithm: "prefix"  # prefix, fuzzy
-  animate_prompt: false # redraw the prompt every second
   float_precision: 2
   buffer_editor: "nvim" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
   use_ansi_coloring: true
@@ -456,7 +455,7 @@ alias "config alacritty" = nvim ~/.config/alacritty/alacritty.yml
 alias "config nvim" = nvim ~/.config/nvim/lua/user/init.lua
 alias "config starship" = nvim ~/.config/starship.toml
 alias cal = /usr/bin/cal --monday
-alias npm = sudo npm
+alias "npm install" = sudo npm install
 alias prog = cd ~/prog
 alias docker = sudo docker
 alias "cd.." = cd ..
