@@ -1,0 +1,55 @@
+{
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "window.zoomLevel": 1,
+    "terminal.integrated.profiles.linux": {
+        "nu": {
+            "path": "nu"
+        },
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "nu",
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.quickOpen",
+        "-workbench.action.terminal.focusFind"
+    ],
+    "editor.experimental.stickyScroll.enabled": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-w>": false,
+        "<C-b>": false,
+        "<C-j>": false,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["k", "j"],
+            "after": ["<esc>"]
+        }
+    ],
+    "git.autofetch": true,
+    "git.confirmSync": false
+}
