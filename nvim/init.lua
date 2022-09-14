@@ -19,6 +19,7 @@ local config = {
 
   -- Set colorscheme
   colorscheme = "default_theme",
+  -- colorscheme = "gruvbox",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -83,7 +84,6 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
-
       -- You can also add new plugins here as well:
       -- { "andweeb/presence.nvim" },
       -- {
@@ -93,6 +93,17 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+
+      -- My themes 
+        -- { "catppuccin/nvim" },
+        -- { "ellisonleao/gruvbox.nvim",
+        --   config = function()
+        --     require("gruvbox").setup({
+        --       italic = false,
+        --       contrast = "soft"
+        --     })
+        --   end
+        -- },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -226,7 +237,8 @@ local config = {
       ["<C-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
       ["<F2>"] =  { function() vim.lsp.buf.rename() end, desc = "Rename" },
       ["<C-p>"] = { function() require('telescope.builtin').find_files() end },
-      ["<C-_>"] = { function() require("Comment.api").toggle_current_linewise() end, desc = "Toggle comment line" },
+      ["<C-_>"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment line" },
+      [";"] = { ":" },
       -- Works only in graphical clients such as Neovide
       ["<C-Tab>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer tab" },
       ["<C-S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer tab" },
@@ -237,7 +249,8 @@ local config = {
       ["<C-j>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
     },
     v = {
-      ["<C-_>"] = { "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
+      ["<C-_>"] = { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" },
+      [";"] = { ":" }
     },
     t = {
       -- setting a mapping to false will disable it
