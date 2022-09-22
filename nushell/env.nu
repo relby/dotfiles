@@ -59,7 +59,11 @@ let-env LIBVA_DRIVERS_PATH = "/usr/lib/dri"
 let-env LIBVA_DRIVER_NAME = "radeonsi"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
+## cargo
 let-env PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
+## pyenv
+let-env PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root | str trim)/shims")
+
 # Starship initialization
 mkdir ~/.cache/starship
 starship init nu | save ~/.cache/starship/init.nu

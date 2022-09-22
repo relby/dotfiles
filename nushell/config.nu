@@ -197,6 +197,7 @@ let default_theme = {
 
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {
+  show_banner: false
   filesize_metric: false
   table_mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
   use_ls_colors: true
@@ -448,14 +449,21 @@ alias l = ls
 alias ll = ls -l
 alias vim = nvim
 alias gs = git status
+alias ga = git add
+alias ga. = git add .
+alias gc = git commit
 alias pacman = sudo pacman 
 alias paru = paru 
 alias "config qtile" = nvim ~/.config/qtile
 alias "config alacritty" = nvim ~/.config/alacritty/alacritty.yml
-alias "config nvim" = nvim ~/.config/nvim/lua/user/init.lua
+alias "config nvim" = nvim ~/.config/nvim
 alias "config starship" = nvim ~/.config/starship.toml
 alias cal = /usr/bin/cal --monday
 alias "npm install" = sudo npm install
+alias "npm i" = sudo npm i
+alias "npm remove" = sudo npm remove
 alias prog = cd ~/prog
 alias docker = sudo docker
+alias docker-compose = sudo docker-compose
+alias tailscale = sudo tailscale
 alias "cd.." = cd ..
