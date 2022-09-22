@@ -1,28 +1,20 @@
 {
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "window.zoomLevel": 1,
     "terminal.integrated.profiles.linux": {
         "nu": {
-            "path": "nu"
+            "path": "nu",
+        },
+        "zsh": {
+            "path": "zsh"
         },
         "bash": {
             "path": "bash",
             "icon": "terminal-bash"
         },
-        "zsh": {
-            "path": "zsh"
-        },
-        "fish": {
-            "path": "fish"
-        },
         "tmux": {
             "path": "tmux",
             "icon": "terminal-tmux"
         },
-        "pwsh": {
-            "path": "pwsh",
-            "icon": "terminal-powershell"
-        }
     },
     "terminal.integrated.defaultProfile.linux": "nu",
     "terminal.integrated.fontFamily": "Iosevka Nerd Font",
@@ -32,9 +24,6 @@
         "-workbench.action.quickOpen",
         "-workbench.action.terminal.focusFind"
     ],
-    "editor.experimental.stickyScroll.enabled": true,
-    "editor.smoothScrolling": true,
-    "editor.cursorSmoothCaretAnimation": true,
     "vim.useSystemClipboard": true,
     "vim.handleKeys": {
         "<C-d>": true,
@@ -51,5 +40,15 @@
         }
     ],
     "git.autofetch": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "python.languageServer": "Jedi",
+    "python.pylanceLspNotebooksEnabled": true,
+    "editor.stickyScroll.enabled": true,
+    "maven.terminal.favorites": [
+        {
+            "alias": "build-run",
+            "command": "clean package exec:java -Dexec.mainClass=\"Main\""
+        }
+    ],
+    "editor.lineNumbers": "relative"
 }
