@@ -1,5 +1,5 @@
 window:
-  opacity: 1
+  opacity: 0.90
 
   # Window title
   title: Alacritty
@@ -15,8 +15,8 @@ window:
     general: Alacritty
 
   dimensions:
-    columns: 120
-    lines: 29
+    columns: 200 # Fullscreen
+    lines: 200 # Fullscreen
 
 scrolling:
   history: 50000
@@ -39,39 +39,35 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 24
+  size: 20
 
 colors:
   # Default colors
   primary:
-    background: '0x24292e'
-    foreground: '0xd1d5da'
+    background: '#282a36'
+    foreground: '#f8f8f2'
 
   # Normal colors
   normal:
-    black: '0x24292e'
-    red: '0xf14c4c'
-    green: '0x23d18b'
-    yellow: '0xe2e210'
-    blue: '0x3b8eea'
-    magenta: '0xbc3fbc'
-    cyan: '0x29b7da'
-    white: '0xd1d5da'
+    black: '#000000'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#caa9fa'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#bfbfbf'
 
   # Bright colors
   bright:
-    black: '0x666666'
-    red: '0xf14c4c'
-    green: '0x23d18b'
-    yellow: '0xf5f543'
-    blue: '0x3b8eea'
-    magenta: '0xd670d6'
-    cyan: '0x29b7da'
-    white: '0xd1d5da'
-
-  indexed_colors:
-    - { index: 16, color: '0xd18616' }
-    - { index: 17, color: '0xf14c4c' }
+    black: '#575b70'
+    red: '#ff6e67'
+    green: '#5af78e'
+    yellow: '#f4f99d'
+    blue: '#caa9fa'
+    magenta: '#ff92d0'
+    cyan: '#9aedfe'
+    white: '#e6e6e6'
 
 shell:
   program: /bin/nu
@@ -81,4 +77,4 @@ shell:
 mouse_bindings:
   - { mouse: Right, action: Paste }
 
-theme: github_dark
+theme: Dracula
