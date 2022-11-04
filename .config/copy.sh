@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Alacritty
 cp ~/.config/alacritty/alacritty.yml ./alacritty/

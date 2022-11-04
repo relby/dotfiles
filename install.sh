@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Update all system
 sudo pacman -Syyuu
@@ -15,9 +15,7 @@ sudo paru -S --needed - < ./pkglist.txt
 
 # Configure vscode 
 cat ./vscode/extensions.txt | grep ^[^#] | xargs -I {} code --install-extension {} --force
-cp ./vscode/settings.json "~/.config/Code - OSS/User/settings.json"
-
+cp -f ./vscode/settings.json "~/.config/Code - OSS/User"
 
 # Install .config folder
-mkdir -p ~/.config
-cp -r ./.config ~/.config
+cp -rf ./.config ~/
