@@ -12,6 +12,7 @@ neofetch
 neovim
 nodejs
 npm
+nushell
 pyenv
 qbittorrent
 rustup
