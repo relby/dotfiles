@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Update all system
-sudo pacman -Syyuu
-
 # Install paru
 sudo pacman -S rustup pkg-config
 rustup update stable
@@ -19,3 +16,12 @@ cp -f ./vscode/settings.json "~/.config/Code - OSS/User"
 
 # Install .config folder
 cp -rf ./.config ~/
+
+# Configure ssh
+ssh-keygen -t rsa -b 4096 -C "kudinov.nikita@gmail.com"
+
+# Configure git
+git config --global user.name "relby"
+git config --global user.email "kudinov.nikita@gmail.com"
+gh auth login
+
