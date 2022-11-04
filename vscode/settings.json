@@ -2,7 +2,7 @@
     "window.zoomLevel": 1,
     "terminal.integrated.profiles.linux": {
         "nu": {
-            "path": "nu",
+            "path": "nu"
         },
         "zsh": {
             "path": "zsh"
@@ -14,7 +14,7 @@
         "tmux": {
             "path": "tmux",
             "icon": "terminal-tmux"
-        },
+        }
     },
     "terminal.integrated.defaultProfile.linux": "nu",
     "terminal.integrated.fontFamily": "Iosevka Nerd Font",

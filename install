@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Install paru
+git clone https://aur.archlinux.org/paru.git /tmp/paru
+(cd /tmp/paru && makepkg -si)
+
+# Install packages
+sudo paru -S --needed - < ./pkglist.txt
+
+
+# Install vscode extensions
+cat ./vscode/extensions.txt | grep ^[^#] | xargs -I {} code --install-extension {} --force
+
+# Install .config folder
+mkdir -p ~/.config
+cp -r ./.config ~/.config

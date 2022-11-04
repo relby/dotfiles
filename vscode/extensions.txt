@@ -1,0 +1,16 @@
+# General
+vscodevim.vim
+cweijan.vscode-database-client2
+EditorConfig.EditorConfig
+eamodio.gitlens
+usernamehw.errorlens
+# Python
+ms-python.python
+matangover.mypy
+# JavaScript
+dbaeumer.vscode-eslint
+# Rust
+matklad.rust-analyzer
+# Themes
+teabyii.ayu
+sainnhe.gruvbox-material
