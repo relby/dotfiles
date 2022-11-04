@@ -1,5 +1,4 @@
 {
-    "window.zoomLevel": 1,
     "terminal.integrated.profiles.linux": {
         "nu": {
             "path": "nu"
@@ -41,7 +40,7 @@
     ],
     "git.autofetch": true,
     "git.confirmSync": false,
-    "python.languageServer": "Jedi",
+    "python.languageServer": "None",
     "python.pylanceLspNotebooksEnabled": true,
     "editor.stickyScroll.enabled": true,
     "maven.terminal.favorites": [
@@ -50,5 +49,7 @@
             "command": "clean package exec:java -Dexec.mainClass=\"Main\""
         }
     ],
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "window.zoomLevel": 1
 }
