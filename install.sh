@@ -37,6 +37,9 @@ sudo tailscale up
 # Configure gnome
 # https://extensions.gnome.org/extension/1486/extensions-sync
 
+# Install wallpapers
+cp ./wallpapers/* ~/.local/share/backgrounds
+
 # TODOS:
 # install browser extensions
 # install configs in them
