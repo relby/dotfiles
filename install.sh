@@ -38,7 +38,10 @@ sudo tailscale up
 # https://extensions.gnome.org/extension/1486/extensions-sync
 
 # Install wallpapers
-cp ./wallpapers/* ~/.local/share/backgrounds
+MAIN_WALLPAPER="2022-10-03-23-59-32-dj-light.png"
+BACKGROUNDS_LOCATION="$HOME/.local/share/backgrounds"
+cp ./wallpapers/* $BACKGROUNDS_LOCATION
+gsettings set org.gnome.desktop.background picture-uri "file:///$BACKGROUNDS_LOCATION/$MAIN_WALLPAPER"
 
 # TODOS:
 # install browser extensions
