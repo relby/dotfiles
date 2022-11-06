@@ -26,3 +26,20 @@ git config --global user.email "kudinov.nikita@gmail.com"
 git config --global init.defaultBranch "main"
 gh auth login
 
+# Disable firefox gnome theme
+# gnome-layout-switcher
+
+# Configure tailscale
+sudo systemctl enable tailscaled
+sudo systemctl start tailscaled
+sudo tailscale up
+
+# Configure gnome
+# https://extensions.gnome.org/extension/1486/extensions-sync
+
+# TODOS:
+# install browser extensions
+# install configs in them
+# copy gnome settings, keybindings, and extensions
+# pacman and paru settings
+# configure tailscale
