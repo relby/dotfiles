@@ -1,7 +1,7 @@
 alacritty
 alacritty-themes
 btop
-code
+visual-studio-code-bin
 discord
 docker
 docker-compose
