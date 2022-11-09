@@ -10,7 +10,7 @@ matangover.mypy
 # JavaScript
 dbaeumer.vscode-eslint
 # Rust
-matklad.rust-analyzer
+rust-lang.rust-analyzer
 # Themes
 teabyii.ayu
 sainnhe.gruvbox-material
