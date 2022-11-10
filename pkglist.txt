@@ -1,5 +1,6 @@
 alacritty
 alacritty-themes
+bat
 btop
 visual-studio-code-bin
 discord
@@ -8,6 +9,7 @@ docker-compose
 firefox
 ghc
 github-cli
+google-chrome
 neofetch
 neovim
 nodejs
