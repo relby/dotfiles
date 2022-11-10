@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # Install paru
-sudo pacman -S rustup pkg-config
+sudo pacman -S --noconfirm rustup pkg-config
 rustup update stable
 rustup default stable
 OUTPUT_FILE="/tmp/paru"
 git clone https://aur.archlinux.org/paru.git $OUTPUT_FILE
-(cd $OUTPUT_FILE && makepkg -si)
+(cd $OUTPUT_FILE && makepkg -si --noconfirm)
 
 # Install packages
-paru -S --needed - < ./pkglist.txt
+paru -S --needed --noconfirm - < ./pkglist.txt
 
 # Configure pacman and paru
 sudo cp ./terminal/pacman.conf /etc
@@ -20,10 +20,10 @@ yes | cp -rf ./.config ~/
 
 # Configure nvim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim +PackerUpdate -es
+nvim +PackerInstall +qall
 
 # Configure ssh
-ssh-keygen -t rsa -b 4096 -C "kudinov.nikita@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "kudinov.nikita@gmail.com" -N "" -f $HOME/.ssh/id_rsa
 
 # Configure git
 git config --global user.name "relby"
@@ -49,6 +49,9 @@ if ! gnome-extensions list | grep --quiet $EXTENSION; then
 fi
 gnome-extensions enable $EXTENSION
 rm $EXTENSION.zip
+
+sudo cp "~/.local/share/gnome-shell/extensions/$EXTENSION/schemas/org.gnome.shell.extensions.extensions-sync.gschema.xml" "/usr/share/glib-2.0/schemas/"
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 gsettings set org.gnome.shell.extensions.extensions-sync github-gist-id "fd4fa21156e44f52a4e56b178c0dfbc6"
 gsettings set org.gnome.shell.extensions.extensions-sync github-user-token $(gh auth token)
