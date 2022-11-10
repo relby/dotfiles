@@ -1,6 +1,6 @@
 # Dotfiles
-Before starting `install.sh` update your system with
+Before starting `install.sh` update the pacman mirror list and packages with
 ```console
-$ sudo pacman -Syyuu
+$ sudo pacman-mirrors --fasttrack && sudo pacman -Syyuu
 ```
-and reboot your system
+and then reboot your system
