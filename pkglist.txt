@@ -18,6 +18,7 @@ nushell
 pyenv
 qbittorrent
 rustup
+spotify
 starship
 steam
 tailscale
