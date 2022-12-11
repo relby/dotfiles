@@ -1,7 +1,1 @@
-require('packer-config')
-require('plugins')
-require('settings')
-require('colorschemas')
-require('mappings')
-require('lsp.lsp')
-require('lsp.completion')
+require('core')
