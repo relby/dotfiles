@@ -1,7 +1,11 @@
 # Nushell Environment Config File
 
 def create_left_prompt [] {
-    let path_segment = ($env.PWD)
+    let path_segment = if (is-admin) {
+        $"(ansi red_bold)($env.PWD)"
+    } else {
+        $"(ansi green_bold)($env.PWD)"
+    }
 
     $path_segment
 }
@@ -9,7 +13,7 @@ def create_left_prompt [] {
 def create_right_prompt [] {
     let time_segment = ([
         (date now | date format '%m/%d/%Y %r')
-    ] | str collect)
+    ] | str join)
 
     $time_segment
 }
@@ -31,12 +35,12 @@ let-env PROMPT_MULTILINE_INDICATOR = { "::: " }
 # Note: The conversions happen *after* config.nu is loaded
 let-env ENV_CONVERSIONS = {
   "PATH": {
-    from_string: { |s| $s | split row (char esep) }
-    to_string: { |v| $v | path expand | str collect (char esep) }
+    from_string: { |s| $s | split row (char esep) | path expand -n }
+    to_string: { |v| $v | path expand -n | str join (char esep) }
   }
   "Path": {
-    from_string: { |s| $s | split row (char esep) }
-    to_string: { |v| $v | path expand | str collect (char esep) }
+    from_string: { |s| $s | split row (char esep) | path expand -n }
+    to_string: { |v| $v | path expand -n | str join (char esep) }
   }
 }
 
@@ -61,6 +65,7 @@ let-env LIBVA_DRIVER_NAME = "radeonsi"
 let-env BAT_THEME = "gruvbox-dark"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
+# let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 ## cargo
 let-env PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
 ## pyenv
