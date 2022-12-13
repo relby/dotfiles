@@ -1,0 +1,23 @@
+[user]
+    name = relby
+    email = kudinov.nikita@gmail.com
+
+[init]
+    defaultBranch = main
+
+[core]
+    excludesfile = /home/relby/.gitignore
+    pager = delta
+
+[delta]
+    line-numbers = true
+    syntax-theme = Sublime Snazzy
+    side-by-side = false
+    light = false
+
+[credential "https://github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
