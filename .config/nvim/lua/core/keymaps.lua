@@ -1,14 +1,18 @@
--- Normal mode
+-- Center the window after certain movements
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.keymap.set('n', '<C-s>', ':w<CR>')
 
+-- Put cursor in place when joining lines
+vim.keymap.set('n', 'J', 'mzJ`z')
+
+-- Format the file with lsp
 vim.keymap.set('n', '<A-f>', function()
     vim.lsp.buf.format()
 end)
 
+-- Select all file
 vim.keymap.set('n', '<leader>sa', 'GVgg')
 
 -- Move between windows
@@ -16,16 +20,36 @@ vim.keymap.set('n', '<A-h>', '<C-w>h')
 vim.keymap.set('n', '<A-j>', '<C-w>j')
 vim.keymap.set('n', '<A-k>', '<C-w>k')
 vim.keymap.set('n', '<A-l>', '<C-w>l')
+vim.keymap.set('t', '<A-h>', [[<C-\><C-N><C-w>h]])
+vim.keymap.set('t', '<A-j>', [[<C-\><C-N><C-w>j]])
+vim.keymap.set('t', '<A-k>', [[<C-\><C-N><C-w>k]])
+vim.keymap.set('t', '<A-l>', [[<C-\><C-N><C-w>l]])
+-- Resize windows
+vim.keymap.set('n', '<A-Left>', '<C-w><')
+vim.keymap.set('n', '<A-Right>', '<C-w>>')
+vim.keymap.set('n', '<A-Down>', '<C-w>-')
+vim.keymap.set('n', '<A-Up>', '<C-w>+')
 
 -- Paste and copy from clipboard
-vim.keymap.set('n', '<leader>p', '"+p')
-vim.keymap.set('n', '<leader>P', '"+P')
-vim.keymap.set('x', '<leader>p', '"+p')
-vim.keymap.set('x', '<leader>P', '"+P')
-vim.keymap.set('x', '<leader>y', '"+y')
+vim.keymap.set('n', '<Space>p', 'o<Esc>"+p')
+vim.keymap.set('n', '<Space>P', 'O<Esc>"+P')
+vim.keymap.set('x', '<Space>p', '"+p')
+vim.keymap.set('x', '<Space>P', '"+P')
+vim.keymap.set({ 'n', 'x' }, '<Space>y', '"+y')
 
--- Insert mode
-vim.keymap.set('i', 'kj', '<Esc>:w<CR>')
-vim.keymap.set('i', 'Kj', '<Esc>:w<CR>')
-vim.keymap.set('i', 'KJ', '<Esc>:w<CR>')
+-- Convenient keymaps to exit insert mode
+vim.keymap.set('i', 'kj', '<Esc>')
+vim.keymap.set('i', 'Kj', '<Esc>')
+vim.keymap.set('i', 'KJ', '<Esc>')
+
+-- Delete word in insert mode
 vim.keymap.set('i', '<A-BS>', '<C-w>')
+-- Enter normal mode in terminal
+vim.keymap.set('t', '<C-v>', [[<C-\><C-n>]])
+
+-- Move selected lines up and down
+vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
+vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
+
+-- Open up Undotree
+vim.keymap.set('n', '<leader>u', function() vim.cmd('UndotreeToggle') end)

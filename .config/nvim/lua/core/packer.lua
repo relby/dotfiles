@@ -11,17 +11,26 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
+require('packer').startup({ function(use, use_rocks)
     use('wbthomason/packer.nvim')
     -- Colorschemas
     use('folke/tokyonight.nvim')
     use('ellisonleao/gruvbox.nvim')
     use('EdenEast/nightfox.nvim')
     use('rose-pine/neovim')
+    use({ "catppuccin/nvim", as = "catppuccin" })
     -- Development
-    use('nvim-tree/nvim-tree.lua')
+    use({
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    })
+
     use('nvim-treesitter/nvim-treesitter-context')
-    use('nvim-tree/nvim-web-devicons')
     use('nvim-treesitter/nvim-treesitter')
     use({
         'nvim-telescope/telescope.nvim',
@@ -29,6 +38,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } },
     })
     use('nvim-telescope/telescope-ui-select.nvim')
+    use('nvim-telescope/telescope-file-browser.nvim')
     use('folke/zen-mode.nvim')
     use('numToStr/Comment.nvim')
     use({
@@ -61,8 +71,31 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
     use('lewis6991/gitsigns.nvim')
+    use('mbbill/undotree')
+    -- A little annoying but maybe I'll use it later
+    -- use('rcarriga/nvim-notify')
+
+    -- Luarocks
+    -- TODO: Figure out how to use Luarocks
+    -- use_rocks('LuaSocket')
 
     if packer_bootstrap then
         require('packer').sync()
     end
-end)
+end,
+    config = {
+        display = {
+            open_fn = function()
+                return require('packer.util').float({ border = 'single' })
+            end
+        }
+    }
+})
+
+-- Automatically source and re-compile packer whenever you save this file
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+    pattern = 'packer.lua',
+    group = packer_group,
+    command = 'source <amatch> | PackerCompile',
+})

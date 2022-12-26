@@ -2,51 +2,41 @@ local lspkind = require('lspkind')
 lspkind.init()
 
 local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     mapping = {
-        -- Move up and down in a completion menu
-        ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ['<C-f>'] = cmp.mapping.confirm({ select = true }),
+        ['<Enter>'] = cmp.mapping.confirm({ select = true }),
 
-        -- TODO: Figure out what these are
-        -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        -- ['<C-u>'] = cmp.mapping.scroll_docs(4),
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
-        ['<C-f>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
+        ['<C-Space>'] = cmp.mapping({
+            i = function()
+                if cmp.visible() then
+                    cmp.abort()
+                else
+                    cmp.complete()
+                end
+            end,
+            c = function()
+                if cmp.complete() then
+                    cmp.close()
+                else
+                    cmp.complete()
+                end
+            end
         }),
-        ['<Enter>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        }),
-        -- Open up a completion menu
-        ['<C-Space>'] = cmp.mapping.complete(),
 
-        -- This enables tab for comepletion and moving in snippets
-        -- ['<Tab>'] = cmp.mapping(function(fallback)
-        --   if cmp.visible() then
-        --     cmp.select_next_item()
-        --   elseif luasnip.expand_or_jumpable() then
-        --     luasnip.expand_or_jump()
-        --   else
-        --     fallback()
-        --   end
-        -- end, { 'i', 's' }),
-        -- ['<S-Tab>'] = cmp.mapping(function(fallback)
-        --   if cmp.visible() then
-        --     cmp.select_prev_item()
-        --   elseif luasnip.jumpable(-1) then
-        --     luasnip.jump(-1)
-        --   else
-        --     fallback()
-        --   end
-        -- end, { 'i', 's' }),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     },
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end
     },
     -- Note: Sorted by priority (descending)
