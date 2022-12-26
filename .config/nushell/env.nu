@@ -73,4 +73,4 @@ let-env PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root | str 
 
 # Starship initialization
 mkdir ~/.cache/starship
-starship init nu | save ~/.cache/starship/init.nu
+starship init nu | save -f ~/.cache/starship/init.nu

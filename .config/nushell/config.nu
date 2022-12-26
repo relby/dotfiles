@@ -254,7 +254,7 @@ let-env config = {
     abbreviations: true # allows `cd s/o/f` to expand to `cd some/other/folder`
   }
   table: {
-    mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
+    mode: heavy # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
     index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
     trim: {
       methodology: wrapping # wrapping or truncating
@@ -543,7 +543,11 @@ let-env config = {
 
 # My custom commands
 def weather [place = "Nizhny_Novgorod", ...rest] {
-  curl $"wttr.in/($rest | prepend $place | str collect '_')"
+    curl $"wttr.in/($rest | prepend $place | str collect '_')"
+}
+
+def chtsh [topic: string, ...rest] {
+    curl $"cht.sh/($topic)/($rest | str join '+')"
 }
 
 def-env mc [name: path] {
@@ -551,7 +555,7 @@ def-env mc [name: path] {
 }
 
 # Initialize starship prompt
-# source ~/.cache/starship/init.nu
+source ~/.cache/starship/init.nu
 
 # Aliases
 alias la = ls -a
@@ -565,8 +569,9 @@ alias gc = git commit
 alias gd = git diff
 alias pacman = sudo pacman
 alias "config alacritty" = nvim ~/.config/alacritty/alacritty.yml
-alias "config nvim" = nvim ~/.config/nvim
+alias "config nvim" = nvim ~/.config/nvim/
 alias "config starship" = nvim ~/.config/starship.toml
+alias "config kitty" = nvim ~/.config/kitty/
 alias cal = /usr/bin/cal --monday
 alias "npm install" = sudo npm install
 alias "npm i" = sudo npm i
@@ -576,6 +581,8 @@ alias docker = sudo docker
 alias docker-compose = sudo docker-compose
 alias tailscale = sudo tailscale
 alias "cd.." = cd ..
-alias activate = source .venv/bin/activate.nu
+alias activate = overlay use .venv/bin/activate.nu
 alias tn = tmux -u new
 alias ta = tmux -u attach
+alias kitty-themes = kitty +kitten themes
+alias icat = kitty +kitten icat
