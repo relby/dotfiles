@@ -62,7 +62,6 @@ let-env NU_PLUGIN_DIRS = [
 let-env EDITOR = "nvim"
 let-env LIBVA_DRIVERS_PATH = "/usr/lib/dri"
 let-env LIBVA_DRIVER_NAME = "radeonsi"
-let-env BAT_THEME = "gruvbox-dark"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
