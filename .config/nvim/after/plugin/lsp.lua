@@ -70,7 +70,7 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach,
             init_options = {
                 fallbackFlags = {
-                    '-std=c++20',
+                    '-std=c++17',
                     '-pedantic',
                     '-Wall',
                     '-Wextra',

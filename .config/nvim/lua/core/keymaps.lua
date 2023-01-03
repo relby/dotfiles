@@ -15,15 +15,6 @@ end)
 -- Select all file
 vim.keymap.set('n', '<leader>sa', 'GVgg')
 
--- Move between windows
-vim.keymap.set('n', '<A-h>', '<C-w>h')
-vim.keymap.set('n', '<A-j>', '<C-w>j')
-vim.keymap.set('n', '<A-k>', '<C-w>k')
-vim.keymap.set('n', '<A-l>', '<C-w>l')
-vim.keymap.set('t', '<A-h>', [[<C-\><C-N><C-w>h]])
-vim.keymap.set('t', '<A-j>', [[<C-\><C-N><C-w>j]])
-vim.keymap.set('t', '<A-k>', [[<C-\><C-N><C-w>k]])
-vim.keymap.set('t', '<A-l>', [[<C-\><C-N><C-w>l]])
 -- Resize windows
 vim.keymap.set('n', '<A-Left>', '<C-w><')
 vim.keymap.set('n', '<A-Right>', '<C-w>>')
@@ -50,6 +41,9 @@ vim.keymap.set('t', '<C-v>', [[<C-\><C-n>]])
 -- Move selected lines up and down
 vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
 vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
+
+-- Substitute all occurrences of the word under the cursor:
+vim.keymap.set('n', '<leader>ss', [[:%s/\<<C-r><C-w>\>/]])
 
 -- Open up Undotree
 vim.keymap.set('n', '<leader>u', function() vim.cmd('UndotreeToggle') end)
