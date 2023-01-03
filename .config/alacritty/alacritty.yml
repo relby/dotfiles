@@ -1,5 +1,5 @@
 window:
-  opacity: 0.90
+  opacity: 1
 
   # Window title
   title: Alacritty
@@ -26,48 +26,58 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font
+    family: JetBrains Mono Nerd Font
+    #family: Iosevka Nerd Font
     style: Regular
   bold:
-    family: Iosevka Nerd Font
+    family: JetBrains Mono Nerd Font
+    #family: Iosevka Nerd Font
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    family: JetBrains Mono Nerd Font
+    #family: Iosevka Nerd Font
     style: Italic
   bold_italic:
-    family: Iosevka Nerd Font
+    family: JetBrains Mono Nerd Font
+    #family: Iosevka Nerd Font
     style: Bold Italic
 
-  # Point size
-  size: 20
+  # Font size
+  size: 18
 
 colors:
+  name: TokyoNight Storm
+  author: Folke
   # Default colors
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: '0x24283b'
+    foreground: '0xc0caf5'
 
   # Normal colors
   normal:
-    black: '#000000'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#caa9fa'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#bfbfbf'
+    black: '0x1D202F'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
 
   # Bright colors
   bright:
-    black: '#575b70'
-    red: '#ff6e67'
-    green: '#5af78e'
-    yellow: '#f4f99d'
-    blue: '#caa9fa'
-    magenta: '#ff92d0'
-    cyan: '#9aedfe'
-    white: '#e6e6e6'
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
 
 shell:
   program: /bin/nu
@@ -77,4 +87,10 @@ shell:
 mouse_bindings:
   - { mouse: Right, action: Paste }
 
-theme: Dracula
+# How to bind specific keys in nvim and tmux:
+# https://neovim.discourse.group/t/how-can-i-map-ctrl-shift-f5-ctrl-shift-b-ctrl-and-alt-enter/2133/2
+key_bindings:
+  - {key: Period, mods: Control, chars: "\x1b[46;5u"}
+  - {key: Comma, mods: Control, chars: "\x1b[44;5u"}
+
+theme: Tokyonight_Storm
