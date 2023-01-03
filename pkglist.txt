@@ -16,6 +16,7 @@ nodejs
 npm
 nushell
 pyenv
+poetry
 qbittorrent
 rustup
 spotify
@@ -25,3 +26,4 @@ tailscale
 tldr
 tmux
 zoxide
+kitty
