@@ -56,10 +56,3 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 gsettings set org.gnome.shell.extensions.extensions-sync github-gist-id "fd4fa21156e44f52a4e56b178c0dfbc6"
 gsettings set org.gnome.shell.extensions.extensions-sync github-user-token $(gh auth token)
 busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync read
-
-# Install wallpapers
-MAIN_WALLPAPER="2022-10-03-23-59-32-dj-light.png"
-BACKGROUNDS_LOCATION="$HOME/.local/share/backgrounds"
-cp ./wallpapers/* $BACKGROUNDS_LOCATION
-gsettings set org.gnome.desktop.background picture-uri "file://$BACKGROUNDS_LOCATION/$MAIN_WALLPAPER"
-
