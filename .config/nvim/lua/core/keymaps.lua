@@ -42,6 +42,10 @@ vim.keymap.set('t', '<C-v>', [[<C-\><C-n>]])
 vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
 vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
 
+-- Prevent canceling virtual mode when indenting
+vim.keymap.set('x', '>', '>gv')
+vim.keymap.set('x', '<', '<gv')
+
 -- Substitute all occurrences of the word under the cursor:
 vim.keymap.set('n', '<leader>ss', [[:%s/\<<C-r><C-w>\>/]])
 
