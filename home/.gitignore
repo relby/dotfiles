@@ -1,0 +1,16 @@
+# javascript
+node_modules/
+dist/
+
+# python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+
+# dotenv
+.env
+# virtualenv
+.venv/
+
+*.db
+*.sqlite3
