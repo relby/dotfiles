@@ -17,6 +17,7 @@ mason_lspconfig.setup({
         'clangd',
         'pyright',
         'tsserver',
+        'rnix'
     },
 })
 
